@@ -1,0 +1,61 @@
+﻿
+@model IEnumerable<finalhazirlik.Models.Ogrenci>
+
+
+@{
+    ViewData["Title"] = "OgrenciListele";
+}
+
+<h1>OgrenciListele</h1>
+
+<p>
+    <a asp-action="OgrenciEkle">Yeni Ogrenci</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OgrenciAd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OgrenciSoyad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OgrenciVize)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OgrenciFinal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OgrenciOrtalama)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.OgrenciAd
+                </td>
+                <td>
+                    @item.OgrenciSoyad
+                </td>
+                <td>
+                    @item.OgrenciVize
+                </td>
+                <td>
+                    @item.OgrenciFinal
+                </td>
+                <td>
+                    @item.OgrenciOrtalama
+                </td>
+                <td>
+                    <a asp-action="OgrenciGuncelle" asp-route-id="@item.OgrenciId">Duzenle</a> |
+                    <a asp-action="OgrenciSil" asp-route-id="@item.OgrenciId" onclick="confirm('kardeş silion?')">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

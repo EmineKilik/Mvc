@@ -1,0 +1,49 @@
+﻿@model finalhazirlik.Models.Ogrenci
+
+@{
+    ViewData["Title"] = "OgrenciGuncelle";
+}
+
+<h1>OgrenciGuncelle</h1>
+
+<h4>Ogrenci</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Ogrenci" asp-action="OgrenciGuncelle" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="OgrenciId" />
+            <div class="form-group">
+                <label asp-for="OgrenciAd" class="control-label"></label>
+                <input asp-for="OgrenciAd" class="form-control" />
+                <span asp-validation-for="OgrenciAd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OgrenciSoyad" class="control-label"></label>
+                <input asp-for="OgrenciSoyad" class="form-control" />
+                <span asp-validation-for="OgrenciSoyad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OgrenciVize" class="control-label"></label>
+                <input asp-for="OgrenciVize" class="form-control" />
+                <span asp-validation-for="OgrenciVize" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OgrenciFinal" class="control-label"></label>
+                <input asp-for="OgrenciFinal" class="form-control" />
+                <span asp-validation-for="OgrenciFinal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
